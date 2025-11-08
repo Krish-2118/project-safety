@@ -1,0 +1,21 @@
+import type { District, Category } from './types';
+
+export const districts: District[] = [
+  { id: 1, name: 'Ganjam' },
+  { id: 2, name: 'Cuttack' },
+  { id: 3, name: 'Bhubaneswar' },
+  { id: 4, name: 'Puri' },
+  { id: 5, name: 'Sambalpur' },
+  { id: 6, name: 'Rourkela' },
+];
+
+export const categoryLabels: Record<Category, string> = {
+    'NBW': 'NBW Execution',
+    'Conviction': 'Conviction Ratio',
+    'Narcotics': 'Narcotic Seizures',
+    'Missing Person': 'Missing Persons Traced',
+    'Firearms': 'Firearms Seized',
+    'Sand Mining': 'Illegal Sand Mining Cases',
+    'Preventive Actions': 'Preventive Actions Taken',
+    'Important Detections': 'Important Detections',
+};

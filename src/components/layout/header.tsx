@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import { PanelLeft } from 'lucide-react';
+import { PanelLeft, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { UserNav } from './user-nav';
 import { SidebarNav } from './sidebar-nav';
+import { Input } from '../ui/input';
 
 export function Header() {
   return (
@@ -50,6 +51,12 @@ export function Header() {
         </SheetContent>
       </Sheet>
       <div className="relative ml-auto flex-1 md:grow-0">
+        <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+        <Input
+          type="search"
+          placeholder="Search..."
+          className="w-full rounded-lg bg-secondary pl-8 md:w-[200px] lg:w-[320px]"
+        />
       </div>
       <UserNav />
     </header>
