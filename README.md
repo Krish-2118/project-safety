@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Smart Analytics Dashboard for Police Good Work Recognition
+
+A real-time, AI-assisted dashboard that analyzes CCTNS “Good Work Done” reports, visualizes district-wise performance, and generates recognition insights for police leadership.
+
+---
+
+## Architecture Overview
+
+**Architecture Pattern:** Client-centric, serverless, with AI-assisted server actions.
+
+### Frontend (Client-Side)
+- **Framework:** Next.js 15 (App Router) + React 18
+- **UI:** ShadCN components + Tailwind CSS
+- **Charts & Data Handling:** Recharts for visualization, `useMemo` for client-side aggregation and filtering
+- **Responsiveness:** All analysis and charts render instantly on the client for smooth interaction
+
+### Data Layer (Firebase)
+- **Database:** Cloud Firestore (NoSQL) as the single source of truth
+- **Collections:** `records` storing Good Work entries
+- **Real-Time Updates:** `onSnapshot` (via `useCollection`) enables live UI updates whenever data changes
+
+### Backend AI Layer (Server-Side)
+- **Server Execution:** Next.js **Server Actions** for secure, server-only logic
+- **AI Runtime:** **Genkit** to orchestrate server-side AI workflows ("flows")
+- **Model Used:** Google **Gemini** for:
+  - Extracting structured data from PDFs
+  - Generating narrative summaries and insights
+
+---
+
+## Key Features
+- Upload & process CCTNS Good Work records (CSV/PDF)
+- Live district and event-wise performance dashboard
+- Trends, charts, and comparative analytics
+- AI-generated monthly performance summaries
+- One-click report export for recognition
+
+---
 
 ## Getting Started
-
-First, run the development server:
-
 ```bash
+git clone https://github.com/your-username/smart-police-dashboard.git
+cd smart-police-dashboard
+
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
